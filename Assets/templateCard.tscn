@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp7ajkk4lqc47"]
+
+[ext_resource type="Texture2D" uid="uid://cg2a22tgx03cb" path="res://Assets/Sprites/The_Pumpkin.png" id="1_7lpg3"]
+[ext_resource type="Script" path="res://Scripts/spriteAnimation.gd" id="2_n2d53"]
+[ext_resource type="Texture2D" uid="uid://bp4jlmk0pc8h7" path="res://Assets/Sprites/placeholder cardback.png" id="3_plab0"]
+[ext_resource type="Script" path="res://Scripts/detectClick.gd" id="4_qyjdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ods12"]
+size = Vector2(32, 52)
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(25, 42)
+texture = ExtResource("1_7lpg3")
+script = ExtResource("2_n2d53")
+_unflipped = ExtResource("3_plab0")
+_flipped = ExtResource("1_7lpg3")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ods12")
+script = ExtResource("4_qyjdb")
+
+[connection signal="mouse_shape_entered" from="Area2D" to="Area2D/CollisionShape2D" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="Area2D/CollisionShape2D" method="_on_area_2d_mouse_shape_exited"]
+[connection signal="was_clicked" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_was_clicked"]
