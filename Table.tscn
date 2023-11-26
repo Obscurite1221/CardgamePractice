@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PlaceholderTable.gd" id="1_m6xga"]
 [ext_resource type="PackedScene" uid="uid://bp7ajkk4lqc47" path="res://Assets/templateCard.tscn" id="2_3a1ri"]
-[ext_resource type="Texture2D" uid="uid://d4fsea2qm7p5h" path="res://First attempt at pixel boi.png" id="3_kyji2"]
+[ext_resource type="Texture2D" uid="uid://d4fsea2qm7p5h" path="res://Assets/First attempt at pixel boi.png" id="3_p0o6s"]
 
 [node name="TableScene" type="Node2D"]
 
@@ -12,4 +12,4 @@ boardPosition = Vector2(50, 100)
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_3a1ri")]
 position = Vector2(417, 99)
-texture = ExtResource("3_kyji2")
+texture = ExtResource("3_p0o6s")
