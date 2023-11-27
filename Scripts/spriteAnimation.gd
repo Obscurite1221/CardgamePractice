@@ -4,16 +4,16 @@ var state = 0 # 0 is unflipped, 1 is flipping to 3, 2 is flipping to 0, 3 is fli
 var flipping = false
 var child = Node
 var _texture : ImageTexture
-var ID = -1
+var ID : int = -1
 @export var _unflipped : CompressedTexture2D
 @export var _flipped : CompressedTexture2D
 @export var _scale = 1.0
+signal was_clicked(Node)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.apply_scale(Vector2(_scale, _scale))
 	self.texture = _unflipped
-	#get_node("Area2D/CollisionShape2D").connect("was_clicked", _on_collision_shape_2d_was_clicked)
 	pass
 
 
@@ -50,7 +50,7 @@ func flipCard():
 	else:
 		pass
 
-func _on_collision_shape_2d_was_clicked(_Node):
+func _on_collision_shape_2d_is_clicked():
 	if (state == 0 || state == 3) && flipping == false:
 		flipping = true
 	pass

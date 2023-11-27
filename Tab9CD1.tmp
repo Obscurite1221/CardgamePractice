@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://grb7drmj04pj"]
+
+[ext_resource type="Script" path="res://PlaceholderTable.gd" id="1_m6xga"]
+[ext_resource type="PackedScene" uid="uid://bp7ajkk4lqc47" path="res://Assets/templateCard.tscn" id="2_fp7vc"]
+
+[node name="TableScene" type="Node2D"]
+
+[node name="PlaceholderTable" type="Node2D" parent="."]
+script = ExtResource("1_m6xga")
+boardPosition = Vector2(50, 100)
+
+[node name="Sprite2D" parent="." instance=ExtResource("2_fp7vc")]
+
+[connection signal="was_clicked" from="Sprite2D" to="PlaceholderTable" method="_on_sprite_2d_was_clicked"]
