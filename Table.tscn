@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://grb7drmj04pj"]
+[gd_scene load_steps=2 format=3 uid="uid://grb7drmj04pj"]
 
-[ext_resource type="Script" path="res://PlaceholderTable.gd" id="1_m6xga"]
-[ext_resource type="PackedScene" uid="uid://bp7ajkk4lqc47" path="res://Assets/templateCard.tscn" id="2_3a1ri"]
-[ext_resource type="Texture2D" uid="uid://d4fsea2qm7p5h" path="res://Assets/First attempt at pixel boi.png" id="3_p0o6s"]
+[ext_resource type="Texture2D" uid="uid://dmnxwg3qs0q5q" path="res://8BIT-P~1.png" id="1_rlcr0"]
 
 [node name="TableScene" type="Node2D"]
+z_index = 1
 
 [node name="PlaceholderTable" type="Node2D" parent="."]
-script = ExtResource("1_m6xga")
-boardPosition = Vector2(50, 100)
+z_index = 1
 
-[node name="Sprite2D" parent="." instance=ExtResource("2_3a1ri")]
-position = Vector2(417, 99)
-texture = ExtResource("3_p0o6s")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -5
+position = Vector2(1000, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_rlcr0")
+centered = false

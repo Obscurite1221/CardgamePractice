@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctyfw766kh8l2"]
+
+[ext_resource type="Script" path="res://Scripts/Control.gd" id="1_03keb"]
+[ext_resource type="Texture2D" uid="uid://dmnxwg3qs0q5q" path="res://Assets/Sprites/MenuBGplaceholder.png" id="2_btets"]
+[ext_resource type="AudioStream" uid="uid://t7fncu6if06k" path="res://Assets/Sounds/Sunset-Pier-PM-Music.mp3" id="3_of1f4"]
+[ext_resource type="Texture2D" uid="uid://d3es84t6ob1ei" path="res://Assets/Sounds/Sound_On_PXL.png" id="4_evgih"]
+[ext_resource type="Texture2D" uid="uid://dw3jg5gtnwr7f" path="res://Assets/Sounds/Sound_Off_PXL.png" id="5_08evo"]
+
+[node name="MainMenuNode" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_03keb")
+
+[node name="MusicTestNode" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("3_of1f4")
+volume_db = 2.476
+autoplay = true
+bus = &"Music"
+
+[node name="Menu Background" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1915.0
+offset_bottom = 1078.0
+texture = ExtResource("2_btets")
+expand_mode = 2
+
+[node name="StartGameButton" type="Button" parent="Control"]
+modulate = Color(0.462745, 1, 1, 1)
+self_modulate = Color(0.462745, 1, 1, 1)
+layout_mode = 0
+offset_left = 628.0
+offset_top = 386.0
+offset_right = 1319.0
+offset_bottom = 540.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+toggle_mode = true
+action_mode = 0
+text = "Start Game"
+
+[node name="Quit" type="Button" parent="Control"]
+modulate = Color(0.462745, 1, 1, 1)
+layout_mode = 0
+offset_left = 628.0
+offset_top = 585.0
+offset_right = 845.0
+offset_bottom = 730.0
+theme_override_colors/font_color = Color(0, 1, 0.833333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+
+[node name="Mute_Music" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1137.0
+offset_top = 585.0
+offset_right = 1321.0
+offset_bottom = 730.0
+toggle_mode = true
+texture_normal = ExtResource("4_evgih")
+texture_pressed = ExtResource("5_08evo")
+stretch_mode = 5
+
+[connection signal="pressed" from="Control/StartGameButton" to="Control" method="get_scene_file_path"]
+[connection signal="pressed" from="Control/StartGameButton" to="Control" method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Control/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Mute_Music" to="Control" method="_on_mute_music_2_pressed"]

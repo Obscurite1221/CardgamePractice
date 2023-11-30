@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ktbol43jhslb"]
+
+[ext_resource type="Script" path="res://Music_Master_Node.gd" id="1_tak50"]
+
+[node name="Music_Master_Node" type="Node"]
+script = ExtResource("1_tak50")
+
+[node name="Music_1" type="AudioStreamPlayer" parent="."]
