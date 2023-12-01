@@ -42,7 +42,8 @@ func selectCard(card : Node):
 		selected.pop_back()
 	elif selected.size() == 1 && card.state == 0:
 		selected.push_back(card)
-	pass
+	else:
+		pass
 	
 func compareCards():
 	if selected[0].flipping == false && selected[1].flipping == false:
